@@ -45,17 +45,19 @@ Our project development is divided into several stages. Here's a brief overview 
 
 - [x] **Proof of Concept (In Progress)**: We're currently in the proof of concept stage, where we're testing the feasibility of the project and working out the basic functionality.
 
-- [ ] **Setup GitHub Repo**: Once the proof of concept is complete, we'll set up a GitHub repo for the project.
+- [x] **Setup GitHub Repo**: The GitHub repository for the project has been set up.
 
-- [ ] **Add Photos to the Repo**: We'll add photos to the repo to provide a visual representation of the project.
+- [x] **Add Photos to the Repo**: We've added photos to the repo to provide a visual representation of the project.
+
+- [x] **Create a Docker Container for the Application**: We've packaged the application into a Docker container to make it easy to deploy and run.
+
+- [x] **Document How to Setup Watchtower**: We've provided documentation on how to set up Watchtower for automatic updates.
+
+- [x] **Host Docker Container on DockerHub or Alternative**: We've hosted the Docker container on DockerHub for easy access.
+
+- [x] **Setup CI/CD Pipeline for building docker images and limited tests**: We've set up a CI/CD pipeline for building Docker images and running limited tests. More tests will be added in the future.
 
 - [ ] **Detail the Hardware Installation**: We'll provide detailed instructions for the hardware installation process.
-
-- [ ] **Create a Docker Container for the Application**: We'll package the application into a Docker container to make it easy to deploy and run.
-
-- [ ] **Document How to Setup Watchtower**: We'll provide documentation on how to set up Watchtower for automatic updates.
-
-- [ ] **Host Docker Container on DockerHub or Alternative**: We'll host the Docker container on DockerHub or a similar platform for easy access.
 
 - [ ] **Include Tailscale for Remote Control Ability**: We'll integrate Tailscale into the project to provide remote control capabilities.
 

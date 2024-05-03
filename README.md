@@ -2,6 +2,8 @@
 
 > **Disclaimer**: This README and the associated code are currently in a rough draft stage. Both will undergo significant changes as the project progresses. The project has been uploaded to GitHub at this early stage to facilitate the use of source code control and a CI/CD pipeline.
 
+![Thermal Camera View](images/TeslaThermaCam_test.jpg)
+
 Welcome to TeslaThermalCam, a unique project that brings thermal imaging right into your Tesla's in-car browser. This project utilizes a P2 Pro thermal camera and a Raspberry Pi 5 to capture and stream thermal video, providing a new perspective on your surroundings.
 
 ## Project Overview
@@ -11,8 +13,8 @@ TeslaThermalCam is designed to run on a Raspberry Pi 5, which is installed in th
 ## Key Features
 
 - **Thermal Video Capture**: The P2 Pro thermal camera captures high-quality thermal video, which is read by our custom Python application.
-- **In-Car Display**: The thermal video is streamed directly to your Tesla's browser, providing a unique and engaging in-car experience.
-- **Raspberry Pi Integration**: The entire system runs on a Raspberry Pi 5, which is conveniently installed in your Tesla's frunk.
+- **In-Car Display**: The thermal video is streamed directly to your Tesla's browser.
+- **Raspberry Pi Integration**: The entire system runs on a Raspberry Pi 5, which can be conveniently installed in your Tesla's frunk.
 - **WiFi Connectivity**: The Raspberry Pi connects to the internet via a WiFi hotspot, ensuring consistent video streaming.
 
 ## Getting Started

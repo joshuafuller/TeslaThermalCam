@@ -1,0 +1,18 @@
+version: '3'
+services:
+    teslathermalcam:
+        build:
+            context: .
+            dockerfile: Dockerfile
+        ports:
+            - "5001:5001"
+        devices:
+            - "/dev/video0:/dev/video0"
+        restart: always
+
+    watchtower:
+        image: containrrr/watchtower
+        volumes:
+            - "/var/run/docker.sock:/var/run/docker.sock"
+        command: --interval 30
+        restart: always

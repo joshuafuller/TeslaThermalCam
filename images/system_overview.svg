@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="180">
+  <rect x="20" y="60" width="120" height="60" fill="#f0f0f0" stroke="#000"/>
+  <text x="80" y="95" text-anchor="middle" font-family="Arial" font-size="12">P2 Pro Camera</text>
+
+  <rect x="170" y="60" width="120" height="60" fill="#f0f0f0" stroke="#000"/>
+  <text x="230" y="95" text-anchor="middle" font-family="Arial" font-size="12">Raspberry Pi</text>
+
+  <rect x="320" y="60" width="120" height="60" fill="#f0f0f0" stroke="#000"/>
+  <text x="380" y="95" text-anchor="middle" font-family="Arial" font-size="12">Flask Server</text>
+
+  <rect x="470" y="60" width="120" height="60" fill="#f0f0f0" stroke="#000"/>
+  <text x="530" y="95" text-anchor="middle" font-family="Arial" font-size="12">Tesla Browser</text>
+
+  <line x1="140" y1="90" x2="170" y2="90" stroke="#000" marker-end="url(#arrow)"/>
+  <line x1="290" y1="90" x2="320" y2="90" stroke="#000" marker-end="url(#arrow)"/>
+  <line x1="440" y1="90" x2="470" y2="90" stroke="#000" marker-end="url(#arrow)"/>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#000" />
+    </marker>
+  </defs>
+</svg>

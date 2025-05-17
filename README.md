@@ -8,7 +8,9 @@ Welcome to TeslaThermalCam, a unique project that brings thermal imaging right i
 
 ## Project Overview
 
-TeslaThermalCam is designed to run on a Raspberry Pi 5, which is installed in the frunk of your Tesla. The system uses a custom Python application to read video feeds from the P2 Pro thermal camera and delivers the video to your Tesla's browser using a Motion JPEG stream. 
+TeslaThermalCam is designed to run on a Raspberry Pi 5, which is installed in the frunk of your Tesla. The system uses a custom Python application to read video feeds from the P2 Pro thermal camera and delivers the video to your Tesla's browser using a Motion JPEG stream.
+
+![System Overview](images/system_overview.svg)
 
 ## Key Features
 

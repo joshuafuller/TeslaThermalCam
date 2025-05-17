@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""Simple Flask video-streaming server for thermal cameras.
+
+The application captures frames from a video device and serves them as an
+MJPEG stream at ``/video_feed``. It also provides a minimal index page that
+displays the live feed in the browser.
+"""
 
 from flask import Flask, Response, render_template_string
 import cv2
@@ -25,6 +31,18 @@ frame_lock = threading.Lock()
 latest_frame = None
 
 def generate_error_image(message):
+    """Return an image containing the given error message.
+
+    Parameters
+    ----------
+    message : str
+        Text to display in the generated image.
+
+    Returns
+    -------
+    bytes
+        Encoded JPEG image with the message.
+    """
     if not message:
         message = "An unknown error occurred"
 
@@ -64,6 +82,15 @@ def generate_error_image(message):
     return buffer.tobytes()
 
 def capture_frames(device_id):
+    """Continuously read frames from the device.
+
+    Parameters
+    ----------
+    device_id : int
+        Index of the video capture device.
+
+    This function updates ``latest_frame`` with JPEG bytes or an error image.
+    """
     global latest_frame
     while True:
         cap = cv2.VideoCapture(device_id)
@@ -96,6 +123,7 @@ def capture_frames(device_id):
         time.sleep(1)  # wait for 1 second before trying to reopen the device
 
 def generate_frames():
+    """Yield the latest frame in MJPEG format."""
     global latest_frame
     while True:
         with frame_lock:
@@ -108,6 +136,7 @@ def generate_frames():
 
 @app.route('/')
 def index():
+    """Serve an HTML page showing the live video feed."""
     return render_template_string('''
 <!DOCTYPE html>
 <html>
@@ -139,8 +168,11 @@ def index():
 
 @app.route('/video_feed')
 def video_feed():
-    return Response(generate_frames(),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+    """Return a streaming response containing MJPEG frames."""
+    return Response(
+        generate_frames(),
+        mimetype='multipart/x-mixed-replace; boundary=frame'
+    )
 
 if __name__ == '__main__':
     threading.Thread(target=capture_frames, args=(args.device,), daemon=True).start()

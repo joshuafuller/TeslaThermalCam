@@ -77,6 +77,10 @@ The TeslaThermalCam project requires the following hardware components:
 - **WiFi Hotspot**: The Raspberry Pi connects to the internet via a WiFi hotspot. This can be provided by a travel router connected to an iPhone's personal hotspot, eliminating the need for a separate 4G dongle.
 
 - **Flask Web Server**: This is a lightweight web server that runs on the Raspberry Pi. It serves the Motion JPEG video stream to the Tesla's browser.
+## Configuration Steps
+
+See [docs/hardware_setup.md](docs/hardware_setup.md) for instructions on mounting the camera, connecting cables, supplying power, and setting up networking.
+
 
 ## Roadmap
 
@@ -116,3 +120,4 @@ We welcome contributions and suggestions! Feel free to open an issue or submit a
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+

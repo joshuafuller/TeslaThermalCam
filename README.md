@@ -21,6 +21,45 @@ TeslaThermalCam is designed to run on a Raspberry Pi 5, which is installed in th
 
 To get started with TeslaThermalCam, you'll need to set up your Raspberry Pi with the necessary software and libraries, install and configure the Python application, and establish network connectivity. Detailed configuration steps can be found in the [Configuration Steps](#configuration-steps) section.
 
+## Configuration Steps
+
+### Install Dependencies
+
+1. Clone this repository onto your Raspberry Pi.
+2. Install the system packages required to build OpenCV and Flask:
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y libgl1-mesa-dev libglib2.0-0 python3-pip
+   ```
+3. Install Python dependencies:
+   ```bash
+   pip3 install -r requirements.txt
+   ```
+
+### Configure the Raspberry Pi
+
+- Connect the P2 Pro thermal camera to your Raspberry Pi.
+- Determine the correct video device by running `v4l2-ctl --list-devices`.
+- When starting the application, specify the device number using the `--device` argument (defaults to `0`).
+- Ensure port `5001` is open so the video stream can be reached from your Tesla's browser.
+
+### Run with Docker
+
+You can build and run the container directly:
+
+```bash
+docker build -t teslathermalcam .
+docker run --device /dev/video0 --rm -p 5001:5001 teslathermalcam
+```
+
+Or use `docker-compose` for a one-command setup (includes Watchtower for updates):
+
+```bash
+docker-compose up -d
+```
+
+The application listens on port `5001` by default as defined in `TeslaThermalCam.py`.
+
 ## Hardware Components
 
 The TeslaThermalCam project requires the following hardware components:
@@ -69,10 +108,16 @@ Our project development is divided into several stages. Here's a brief overview 
 
 Please note that this roadmap is subject to change as the project progresses.
 
+## Automatic Updates with Watchtower
+
+This project uses [Watchtower](docs/watchtower.md) to keep Docker containers up to date. The `watchtower` service in `docker-compose.yml` periodically pulls new images and restarts containers. See the documentation for details on configuring the update interval or disabling the service.
+
+
 ## Join Us
 
 We welcome contributions and suggestions! Feel free to open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+

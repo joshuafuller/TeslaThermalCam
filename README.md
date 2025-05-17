@@ -104,6 +104,11 @@ Our project development is divided into several stages. Here's a brief overview 
 
 Please note that this roadmap is subject to change as the project progresses.
 
+## Automatic Updates with Watchtower
+
+This project uses [Watchtower](docs/watchtower.md) to keep Docker containers up to date. The `watchtower` service in `docker-compose.yml` periodically pulls new images and restarts containers. See the documentation for details on configuring the update interval or disabling the service.
+
+
 ## Join Us
 
 We welcome contributions and suggestions! Feel free to open an issue or submit a pull request.

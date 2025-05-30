@@ -127,11 +127,16 @@ def generate_frames():
     global latest_frame
     while True:
         with frame_lock:
-            while latest_frame is None:
-                time.sleep(0.1)  # wait for the first frame
-            frame_copy = copy.deepcopy(latest_frame)
-            yield (b'--frame\r\n'
-                   b'Content-Type: image/jpeg\r\n\r\n' + frame_copy + b'\r\n')
+            frame_copy = copy.deepcopy(latest_frame) if latest_frame is not None else None
+
+        if frame_copy is None:
+            time.sleep(0.1)  # wait for the first frame without holding the lock
+            continue
+
+        yield (
+            b"--frame\r\n"
+            b"Content-Type: image/jpeg\r\n\r\n" + frame_copy + b"\r\n"
+        )
         time.sleep(0.1)  # reduce CPU usage
 
 @app.route('/')

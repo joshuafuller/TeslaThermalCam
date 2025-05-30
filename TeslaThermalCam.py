@@ -64,6 +64,10 @@ def generate_error_image(message):
 
     if not wrapped_text:  # if the message is too long to fit in the image
         font_scale = 0.4  # reduce the font size
+        # recalculate sizing metrics based on the new font scale
+        char_size, _ = cv2.getTextSize('a', font, font_scale, font_thickness)
+        char_width = char_size[0]
+        max_chars = image.shape[1] // char_width
         wrapped_text = textwrap.wrap(message, width=max_chars)
 
     line_height = char_size[1] + 5  # 5 pixels for spacing between lines

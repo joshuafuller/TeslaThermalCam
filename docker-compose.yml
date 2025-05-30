@@ -7,7 +7,8 @@ services:
         ports:
             - "5001:5001"
         devices:
-            - "/dev/video0:/dev/video0"
+            - "${CAMERA_DEVICE:-/dev/video0}:/dev/video0"
+        command: python TeslaThermalCam.py --device ${CAMERA_INDEX:-0}
         restart: always
 
     watchtower:

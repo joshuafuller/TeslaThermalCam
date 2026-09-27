@@ -22,7 +22,6 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(
 # Argument parser setup
 parser = argparse.ArgumentParser(description="Video stream server.")
 parser.add_argument("--device", type=int, default=0, help="Video device number (e.g., 0). Use 'v4l2-ctl --list-devices' to list all devices.")
-args = parser.parse_args()
 
 app = Flask(__name__)
 
@@ -175,5 +174,6 @@ def video_feed():
     )
 
 if __name__ == '__main__':
+    args = parser.parse_args()
     threading.Thread(target=capture_frames, args=(args.device,), daemon=True).start()
     app.run(host='0.0.0.0', port=5001, threaded=True)

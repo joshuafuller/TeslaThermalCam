@@ -60,6 +60,14 @@ Or use `docker-compose` for a one-command setup (includes Watchtower for updates
 docker-compose up -d
 ```
 
+By default the stack expects your camera at `/dev/video0` and uses camera index
+`0`. Set the environment variables `CAMERA_DEVICE` and `CAMERA_INDEX` before
+running `docker-compose` to override these values. Example:
+
+```bash
+CAMERA_DEVICE=/dev/video1 CAMERA_INDEX=1 docker-compose up -d
+```
+
 The application listens on port `5001` by default as defined in `TeslaThermalCam.py`.
 
 ## Hardware Components
